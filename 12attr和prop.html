@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>attr</title>
+		<script src="jquery-3.5.0.min.js"></script>
+		<script>
+			$(function()
+			{
+				//1.atrr:当只有一个参数时，表示获取属性节点的值；当有两个参数时，表示设置属性节点的值
+				//注意：如果是获取，则只会获取第一个符合条件的；如果是设置则都会设置——若设置的节点不存在，则会新加一个属性节点
+				var get=$("span").attr("class");
+				console.log(get);
+				var set=$("span").attr("class","box");
+				console.log(set);
+				$("span").attr("abc","123");
+				
+				//2.removeAttr:删除所有满足条件的属性节点
+				$("span").removeAttr("class name");
+				
+				//3.prop特点和attr一样,remove...也一样
+				$("span").eq(0).prop("demo","it666");
+				$("span").eq(1).prop("demo","lnj");
+				var get2=$("span").prop("demo");
+				console.log(get2);
+				$("span").removeProp("demo");
+				
+				//区别：
+				console.log($("input").prop("checked"));  //true/false,因此prop适用于只有两个值的属性节点例如checked,selected,disabled
+				console.log($("input").attr("checked"));  //checked/undefined
+			})
+		</script>
+	</head>
+	
+	<body>
+		<span class="span1" name="it666"></span>
+		<span class="span2" name="lnj"></span>
+		<input type="checkbox" checked>
+	</body>
+</html>

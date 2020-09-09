@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>核心函数</title>
+		<script src="jquery-3.5.0.min.js"></script>
+		<script>
+			//$():jquery的核心函数
+			//1.接收函数
+			$(function()
+			{
+				alert("接收函数");
+				//2.接收选择器
+				var $box1=$(".box1");
+				var $box2=$("#box2");
+				//3.接收代码片段，返回jquery对象，其中保存了创建的dom对象
+				var $p=$("<p>我是对象</p>");
+				console.log($p);
+				$box1.append($p);
+				//4.接收dom元素，返回jquery对象
+				var $span=$(span);
+			})
+		</script>
+	</head>
+	
+	<body>
+		<h1 class="box1">类选择器</h1>
+		<h1 id="box2">id选择器</h1>
+		<span>dom对象</span>
+	</body>
+</html>

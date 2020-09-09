@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>事件冒泡和默认行为</title>
+		<style>
+			*{
+				margin:0;   /* 0可以没有px,非0不行 */
+				padding:0;
+			}
+			.father{
+				width:200px;
+				height:200px;
+				background: indigo;
+			}
+			.son{
+				width:100px;
+				height:100px;
+				background: skyblue;
+			}
+		</style>
+		<script src="jquery-3.5.0.min.js"></script>
+		<script>
+			$(function()
+			{
+				//两种方法阻止事件冒泡，记得写到儿子里面
+				$(".son").click(function()
+				{
+					alert("son");
+					return false;
+				});
+				/*$(".son").click(function(event)
+				{
+					alert("son");
+					event.stopPropagation();
+				});*/
+				
+				$(".father").click(function()
+				{
+					alert("father");
+				});
+				
+				//两种方法阻止默认行为，与上面一样
+				$("a").click(function()
+				{
+					alert("阻止跳转百度默认行为");
+					return false;
+				})
+				$("#666").click(function(event)
+				{
+					alert("阻止提交默认行为");
+					event.preventDefault();
+				})
+			});
+		</script>
+	</head>
+	
+	<body>
+		<div class="father">
+			<div class="son"></div>
+		</div>
+		<a href="http://www.baidu.com">百度</a>
+		<form action="http://www.taobao.com">
+			<input type="text">
+			<input id="666" type="submit">
+		</form>
+	</body>
+</html>

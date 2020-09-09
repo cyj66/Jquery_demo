@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>事件绑定</title>
+		<script src="jquery-3.5.0.min.js"></script>
+		<script>
+			$(function()
+			{
+				//绑定有两种方法，推荐第一种有编码提示效率高，但部分js功能没有添加，这点不如第二种方法
+				//1.两种方法的实现：
+				/*$("button").click(function()
+				{
+					alert("hello");
+				});
+				$("button").on("click",function()
+				{
+					alert("hi");
+				});*/
+				//2.注意：两种方法均可以添加多个事件不会覆盖
+				
+				
+				$("button").click(function()
+				{
+					alert("click1");
+				});
+				$("button").click(function()
+				{
+					alert("click2");
+				});
+				$("button").mouseleave(function()
+				{
+					alert("mouseleave");
+				});
+				$("button").mouseenter(function()
+				{
+					alert("mouseenter");
+				});
+				
+			});
+		</script>
+	</head>
+	<body>
+		<button>按钮</button>
+	</body>
+</html>

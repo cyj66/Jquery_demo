@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>删除节点</title>
+		<script src="jquery-3.5.0.min.js"></script>
+		<script>
+			$(function()
+			{
+				$("button").click(function()
+				{
+					//删除节点3个语句
+					//$("div").remove();   //删除指定元素
+					//$("div").empty();      //删除指定元素中的内容，但不删除元素本身
+					$("li").detach(".item");   //detach与remove一样
+				})
+			});
+		</script>
+	</head>
+	<body>
+		<button>删除节点</button>
+		<ul>
+			<li class="item">第1个li</li>
+			<li>第2个li</li>
+			<li class="item">第3个li</li>
+			<li>第4个li</li>
+			<li class="item">第5个li</li>
+		</ul>
+		<div>我是div</div>
+	</body>
+</html>

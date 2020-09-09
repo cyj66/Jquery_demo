@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>类操作</title>
+		<script src="jquery-3.5.0.min.js"></script>
+		<script>
+			$(function()
+			{
+				var btn=document.getElementsByTagName("button");
+				btn[0].onclick=function()
+				{
+					$("div").addClass("class1 class2");
+				}
+				btn[1].onclick=function()
+				{
+					$("div").removeClass("class2");    //删多个同样用空格隔开
+				}
+				btn[2].onclick=function()
+				{
+					$("div").toggleClass("class2 class1");
+				}
+			})
+		</script>
+		<style>
+			*{
+				margin:0;
+				padding:0;
+			}
+			.class1{
+				width:100px;
+				height:100px;
+				background: red;
+			}
+			.class2{
+				border:10px solid black;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<button>增加类</button>
+		<button>删除类</button>
+		<button>切换类</button>  <!-- 即有则删除无则添加 -->
+		<div></div>         <!-- 类添加的位置 -->
+	</body>
+</html>

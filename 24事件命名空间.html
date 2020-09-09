@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>事件命名空间</title>
+		<script src="jquery-3.5.0.min.js"></script>
+		<style>
+			.father{
+				width:200px;
+				height:200px;
+				background: tan;
+			}
+			.son{
+				width:100px;
+				height:100px;
+				background: fuchsia;
+			}
+		</style>
+		<script>
+			$(function()
+			{
+				//命名空间
+				$(".father").on("click.s",function()
+				{
+					alert("father click1");
+				});
+				$(".father").on("click",function()
+				{
+					alert("father click2");
+				});
+				$(".son").on("click.s",function()
+				{
+					alert("son click");
+				});
+				
+				//利用trigger触发子元素带命名空间的事件，那么父元素带相同命名空间的事件也会触发，而父元素没有命名空间的事件不会触发
+				$(".son").trigger("click.s");
+				//利用trigger触发子元素不带命名空间的事件，那么子元素和父元素所有相同类型的事件都会触发
+				$(".son").trigger("click");
+				
+			});
+		</script>
+	</head>
+	<body>
+		<div class="father">
+			<div class="son"></div>
+		</div>
+	</body>
+</html>

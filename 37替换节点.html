@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>替换节点</title>
+		<script src="jquery-3.5.0.min.js"></script>
+		<script>
+			$(function()
+			{
+				$("button").click(function()
+				{
+					//替换节点有两个语句
+					
+					//创建节点
+					var $h6=$("<h6>我是标题6</h6>");
+					//$("h1").replaceWith($h6);           //替换所有匹配的元素为指定元素
+					$h6.replaceAll("h1");                 //主客调换罢了
+				})
+			});
+		</script>
+	</head>
+	<body>
+		<button>替换节点</button>
+		<h1>我是标题1</h1>
+		<h1>我也是标题1</h1>
+		<p>我是段落</p>
+	</body>
+</html>

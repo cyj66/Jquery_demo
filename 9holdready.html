@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>holdready</title>
+		<script src="jquery-3.5.0.min.js"></script>
+		<script>
+			$.holdReady(true);    //暂停执行ready
+			$(document).ready(function()
+			{
+				alert("ready");
+			});
+		</script>
+	</head>
+	 
+	<body>
+		<button>回复ready事件</button>
+		<script>
+			var btn=document.getElementsByTagName("button")[0];
+			btn.onclick=function(){$.holdReady(false);}    //继续执行ready
+		</script>
+	</body>
+</html>

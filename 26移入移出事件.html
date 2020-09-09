@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="jquery-3.5.0.min.js"></script>
+		<style>
+			*{
+				margin:0;
+				padding:0;
+			}
+			.father{
+				width:200px;
+				height:200px;
+				background: fuchsia;
+			}
+			.son{
+				width:100px;
+				height:100px;
+				background: #4B0082;
+			}
+		</style>
+		<script>
+			$(function()
+			{ 
+				//mouseover/mouseout子元素被移入移出会触发父元素事件
+				/*$(".father").mouseover(function()   
+				{
+					console.log("移入father");
+				});
+				$(".father").mouseout(function()
+				{
+					console.log("移出father");
+				});*/
+				
+				//mouseenter/mouseleave子元素被移入移出不会触发父元素事件
+				/*$(".father").mouseenter(function()   
+				{
+					console.log("移入father");
+				});
+				$(".father").mouseleave(function()
+				{
+					console.log("移出father");
+				});*/
+				
+				//hover=mouseenter+mouseleave
+				//1.有两个参数时，分别监视移入移出
+				/*$(".father").hover(function()
+				{
+					console.log("移入father");
+				},function()
+				{
+					console.log("移出father");
+				});*/
+				
+				//2.只有一个参数时，该回调函数移入移出均监视
+				$(".son").hover(function()
+				{
+					console.log("移入移出father");
+				});
+			});
+		</script>
+	</head>
+	
+	<body>
+		<div class="father">
+			<div class="son"></div>
+		</div>
+	</body>
+</html>

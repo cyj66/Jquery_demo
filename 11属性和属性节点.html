@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="jquery-3.5.0.min.js"></script>
+		<script>
+			$(function()
+			{
+				function aclass(){}
+				var a=new aclass()
+				a.name1="cyj";      //为对象添加属性,两种方法
+				a["name2"]="lq";
+				console.log(a.name1);   
+				console.log(a["name2"]); 
+				
+				var spann=document.getElementsByTagName("span")[0];
+				console.log(spann.getAttribute("name"));
+				spann.setAttribute("name","操作属性节点");
+				console.log(spann.getAttribute("name"));
+			})
+		</script>
+	</head>
+	<body>
+		<span name="属性节点"></span>   <!-- 标签中添加的属性就是属性节点 ，任何对象都可以有属性，但只有dom元素才有属性节点-->
+	</body>
+</html>

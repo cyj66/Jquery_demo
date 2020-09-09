@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="jquery-3.5.0.min.js"></script>
+		<style>
+			*{
+				margin:0;   /* 0可以没有px,非0不行 */
+				padding:0;
+			}
+			.father{
+				width:200px;
+				height:200px;
+				background: indigo;
+			}
+			.son{
+				width:100px;
+				height:100px;
+				background: skyblue;
+			}
+		</style>
+		<script>
+			$(function()
+			{
+				$(".son").click(function()
+				{
+					alert("son");
+				});
+				$(".father").click(function()
+				{
+					alert("father");
+				});
+				//$(".son").trigger("click");    //自动触发click事件，并且会同时触发事件冒泡
+				$(".son").triggerHandler("click");    //自动触发click事件，但是不会触发事件冒泡
+				
+				$("input[type='submit']").click(function()    //注意这里对标签元素的操作
+				{
+					alert("submit");
+				});
+				//$("input[type='submit']").trigger("click");      //会同时触发默认行为
+				$("input[type='submit']").triggerHandler("click");   //不会同时触发默认行为
+				
+				/*$("a").click(function()
+				{
+					alert("a");
+				});
+				$("a").trigger("click"); */      //面试题::a标签在被trigger自动触发后不会再有默认行为，为了让其有默认行为需要套一个子元素
+				
+				$("span").click(function()
+				{
+					alert("a");
+				});
+				$("span").triggerHandler/*  */("click"); 
+			});
+		</script>
+	</head>
+	<body>
+		<div class="father">
+			<div class="son"></div>
+		</div>
+		<form action="http://www.taobao.com">
+			<input type="text">
+			<input type="submit">
+		</form>
+		<a href="http://www.baidu.com"><span>百度</span></a>
+	</body>
+</html>

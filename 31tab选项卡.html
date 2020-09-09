@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>tab选项卡</title>
+		<script src="jquery-3.5.0.min.js"></script>
+		<style>
+			*{
+				margin:0;
+				padding:0;
+				background: pink;
+			}
+			h1{
+				color:red;
+				text-align: center;
+				margin-top:150px;
+			}
+			.box{
+				width:450px;
+				height:300px;
+				border:1px solid black;
+				margin:50px auto;
+			}
+			.nav>li{
+				list-style:none;
+				background: skyblue;
+				width:150px;
+				height:50px;
+				text-align: center;    /* 水平居中 */
+				line-height:50px;     /* 垂直居中 */
+				float:left;
+			}
+			.nav>.current{
+				background: orange;
+			}
+			
+			
+			img{
+				width:450px;
+				height:250px;	
+			}
+			.content>li{
+				list-style:none;
+				display:none;
+			}
+			.content>.show{
+				display:block;
+			}
+		</style>
+		<script>
+			$(function()
+			{
+				/*
+				//1.监听选项卡的移入事件
+				$(".nav>li").mouseenter(function()
+				{
+					//1.1修改被移入选项卡的背景颜色
+					$(this).addClass("current");
+					//1.2获取当前移入选项卡的索引,根据索引找到对应图片
+					var index=$(this).index();
+					var $li=$(".content>li").eq(index);
+					$li.addClass("show");
+				})
+				
+				//2.监听选项卡的移出事件
+				$(".nav>li").mouseleave(function()
+				{
+					//2.1还原选项卡的背景颜色
+					$(this).removeClass("current");
+					//2.2同理
+					var index=$(this).index();
+					var $li=$(".content>li").eq(index);
+					$li.removeClass("show");
+				})
+				*/
+			   //终极版：siblings版本
+				$(".nav>li").mouseenter(function()
+				{
+					$(this).addClass("current");
+					$(this).siblings().removeClass("current");
+					var index=$(this).index();
+					var $li=$(".content>li").eq(index);
+					$li.siblings().removeClass("show");
+					$li.addClass("show");
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<h1>送给宝贝巧巧三朵花花表示爱意❤</h1>
+		<div class="box">
+			<ul class="nav">
+				<li>花花1</li>
+				<li>花花2</li>
+				<li>花花3</li>
+			</ul>
+			<ul class="content">
+				<li class="show"><img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1740749014,2654817649&fm=26&gp=0.jpg"></li>
+				<li><img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3625534224,3192821759&fm=26&gp=0.jpg"></li>
+				<li><img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=252439944,737088017&fm=26&gp=0.jpg"></li>
+			</ul>
+		</div>
+	</body>
+</html>

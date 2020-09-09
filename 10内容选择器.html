@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>内容选择器</title>
+		<script src="jquery-3.5.0.min.js"></script>
+		<script>
+			$(function()       //要有入口函数   
+			{
+				//:empty  找到既没有子元素又没有文本内容的元素
+				var $div1=$("div:empty");
+				console.log($div1); 
+				
+				//:parent  找到有子元素或有文本内容的元素
+				var $div2=$("div:parent");
+				console.log($div2); 
+				
+				//:contains(text)  找到包含指定文本内容的元素
+				var $div3=$("div:contains('文本内容')");
+				console.log($div3); 
+				
+				//:has(selector)  找到包含指定子元素的元素
+				 var $div4=$("div:has('span')");
+				 console.log($div4); 
+			 });
+		</script>
+		<style>
+			div{
+				margin:10px;
+				width:100px;
+				height:100px;
+				background: cyan;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div></div>
+		<div>有文本内容1</div>
+		<div>有文本内容2</div>
+		<div>内容3</div>
+		<div><span></span></div>    <!-- 只有子元素 -->
+		<div><p>既有子元素又有文本内容</p></div>
+	</body>
+</html>

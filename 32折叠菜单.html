@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>折叠菜单</title>
+		<script src="jquery-3.5.0.min.js"></script>
+		<style>
+			*{
+				margin:0;
+				padding:0;
+			}
+			.nav{
+				list-style:none;
+				width:300px;
+				margin:100px auto;
+			}
+			.nav>li{
+				border:1px solid black;
+				line-height:35px;
+				border-bottom:none;
+				text-indent:2em;   /* 定义一个块元素首行文本内容之前的缩进量 */
+				position:relative;
+			}
+			.nav>li:first-child{
+				border-top-right-radius:10px;
+				border-top-left-radius:10px;
+			}
+			.nav>li:last-child{
+				border-bottom:1px solid black;
+				border-bottom-right-radius:10px;
+				border-bottom-left-radius:10px;
+			}
+			span{
+				float:right;
+				position:absolute;
+				right:30px;
+			}
+			.sub>li{
+				list-style: none;
+				background: pink;
+				border-bottom:1px solid white;
+			}
+			.sub>li:hover{
+				background: red;
+			}
+			.sub{
+				display:none;
+			}
+			.nav>.current>span{
+				transform:rotate(90deg);
+			}
+		</style>
+		<script>
+			$(function()
+			{
+				$(".nav>li").click(function()
+				{
+					var $sub=$(this).children(".sub")      //children需要加.
+					$sub.slideDown(1000);
+					var other=$(this).siblings().children(".sub");
+					other.slideUp(1000);
+					$(this).addClass("current");
+					$(this).siblings().removeClass("current");
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<ul class="nav">
+			<li class>一级菜单<span>></span>
+				<ul class="sub">
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+				</ul>
+			</li>
+			<li>一级菜单<span>></span>
+				<ul class="sub">
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+				</ul>
+			</li>
+			<li>一级菜单<span>></span>
+				<ul class="sub">
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+				</ul>
+			</li>
+			<li>一级菜单<span>></span>
+				<ul class="sub">
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+				</ul>
+			</li>
+			<li>一级菜单<span>></span>
+				<ul class="sub">
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+				</ul>
+			</li>
+		</ul>
+	</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>对联广告</title>
+		<script src="jquery-3.5.0.min.js"></script>
+		<style>
+			*{
+				margin:0;
+				padding:0;
+			}
+			.left{
+				width:100px;
+				height:200px;
+				float:left;
+				left:0;
+				position:fixed;
+				top:200px;
+			}
+			.right{
+				width:100px;
+				height:200px;
+				float:right;
+				right:0;
+				position:fixed;
+				top:200px;
+			}
+			img{
+				display:none;
+			}
+		</style>
+		<script>
+			$(function()
+			{
+				//监听网页滚动,网页滚动则执行里面的函数
+				$(window).scroll(function()         //注：window不用引号
+				{
+					var scro=$("body,html").scrollTop();     //获取网页滚动偏移位     //注：body和html在同一个双引号里
+					if(scro>=500)
+					{
+						$("img").show(1000);
+					}
+					else
+					{
+						$("img").hide(1000);
+					}
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<img src="1.png" class="left">
+		<img src="2.png" class="right">
+		<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+	</body>
+</html>

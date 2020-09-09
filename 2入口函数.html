@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>入口函数</title>
+		<script src="jquery-3.5.0.min.js"></script>
+		<script>
+			
+			//一、js和jquery比较
+			//1.原生js得到dom
+			window.onload=function(ev)
+			{
+				var img=document.getElementsByTagName("img")[0];
+				console.log(img);
+				//可以得到宽高
+				var width=window.getComputedStyle(img).width;
+				console.log(width);
+			}
+			//2.jquery得到dom
+			$(document).ready(function()
+			{
+				var $img=$("img")[0];
+				console.log($img);
+				//不可以得到宽高
+				var $width=$img.width;
+				console.log($width);
+			})
+			//原因：两者加载模式不同，前者会等到dom和图片等加载完毕再执行，后者会等到dom加载完毕但不会等到图片加载完毕再执行，也是onload和ready的区别
+		
+			//1.原生js会覆盖前面出现的
+			window.onload=function()
+			{
+				alert("原生js 1");
+			}
+			window.onload=function()
+			{
+				alert("原生js 2");
+			}
+			
+			//2.jquery不会覆盖
+			$(document).ready(function()
+			{
+				alert("jquery 1");
+			})
+			
+			$(document).ready(function()
+			{
+				alert("jquery 2");
+			})
+			
+			//二、jquery入口函数写法
+			$(document).ready(function()
+			{
+				alert("第一种写法");
+			})
+			jQuery(document).ready(function()   //若$符号有冲突可以用 jQuery.noConflict() 释放$在jquery中的使用权。也可以自定义一个符号来代替$在jquery中的作用，var nb=jQuery.noConflict()
+			{
+				alert("第二种写法");
+			})
+			$(function()
+			{
+				alert("第三种写法");
+			})
+			jQuery(function()
+			{
+				alert("第四种写法");
+			})
+		</script>
+	</head>
+	
+	<body>
+		<img src="https://i2.hdslb.com/bfs/face/a1efbdc8b34da2d5765f25ee5910b9441724aae0.jpg@68w_68h.webp">
+	</body>
+</html>

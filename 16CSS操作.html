@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>CSS操作</title>
+		<script src="jquery-3.5.0.min.js"></script>
+		<script>
+			$(function()
+			{
+				//1.逐个设置
+				// $("div").css("width","100px");
+				// $("div").css("height","100px");
+				// $("div").css("background","pink");
+				
+				//2.链式设置
+				//$("div").css("width","100px").css("height","100px").css("background","red");
+				
+				//3.批量设置（推荐），类似对象
+				$("div").css(
+				{
+					width:"100px",
+					height:"100px",
+					background:"blue"
+				});
+				
+				//4.获取CSS样式值
+				console.log($("div").css("width"));
+			});
+		</script>
+	</head>
+	
+	<body>
+		<div></div>
+	</body>
+</html>

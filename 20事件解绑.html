@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>事件解绑</title>
+		<script src="jquery-3.5.0.min.js"></script>
+		<script>
+			$(function()
+			{
+				//事件解绑
+				function test1()
+				{
+					alert("click1");
+				}
+				$("button").click(test1);
+				
+				function test2()
+				{
+					alert("click2");
+				}
+				$("button").click(test2);
+				
+				//$("button").off();//不传参数会移除所有事件
+				//$("button").off("click");//传一个参数会移除所有满足该条件的事件
+				$("button").off("click",test1);//传两个参数会移除指定类型的指定事件
+			});
+		</script>
+	</head>
+	<body>
+		<button>按钮</button>
+	</body>
+</html>

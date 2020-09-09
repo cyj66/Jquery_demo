@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>无限循环滚动</title>
+		<script src="jquery-3.5.0.min.js"></script>
+		<style>
+			*{
+				margin:0;
+				padding:0;
+			}
+			div{
+				width:400px;
+				height:150px;
+				border:solid 1px black;
+				margin:100px auto;
+				overflow: hidden;
+			}
+			ul{
+				list-style: none;
+				width:1000px;
+				height:150px;
+				background: rgba(0,0,0,1);     /* 最后一个是透明度 */
+			}
+			ul>li{
+				float:left;
+			}
+			img{
+				width:200px;
+				height:150px;
+			}
+		</style>
+		<script>
+			$(function()
+			{
+				//1.让图片滚动起来
+				var offset=0;
+				var timer;
+				function autoplay()
+				{
+					timer=setInterval(function()
+					{
+						offset+=-10;
+						if(offset<=-600)
+						{
+							offset=0;
+						}
+						$("ul").css("marginLeft",offset);
+					},50);
+				}
+				autoplay();
+					
+				//2.监听li的移入移出事件
+				$("li").hover(function()
+				{
+					//移入停止滚动
+					clearInterval(timer);
+					//并且给非当前选中添加蒙版
+					$(this).siblings().fadeTo(100,0.2);
+					//去除当前选中的蒙版
+					$(this).fadeTo(100,1);
+				},function()
+				{
+					//移出继续滚动
+					autoplay();
+					//去除所有蒙版
+					$("li").fadeTo(100,1);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div>
+			<ul>
+				<li><img src="花1.png"/></li>
+				<li><img src="花2.png"/></li>
+				<li><img src="花3.png"/></li>
+				<li><img src="花1.png"/></li>
+				<li><img src="花2.png"/></li>
+			</ul>
+		</div>
+	</body>
+</html>

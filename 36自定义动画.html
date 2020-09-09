@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>自定义动画</title>
+		<script src="jquery-3.5.0.min.js"></script>
+		<style>
+			*{
+				margin:0;
+				padding:0;
+			}
+			div{
+				width:100px;
+				height:100px;
+				margin-top:10px;
+				background:red;
+			}
+			.two{
+				background:blue;
+			}
+		</style>
+		<script>
+			$(function()
+			{
+				//animate四个参数：1.动画变化后的属性；2.动画时长；3.动画节奏；4.动画执行后的回调函数(可以省略)
+				$("button").eq(0).click(function()
+				{
+					$(".one").animate({width:500},1000,function()         //不用单位
+					{
+						alert("自定义动画执行完毕");
+					});
+				});
+				$("button").eq(1).click(function()
+				{
+					$(".one").animate({marginLeft:500},5000,"linear",function(){});   //匀速
+					$(".two").animate({marginLeft:500},5000,"swing",function(){});     //缓动,默认是这种移动方式
+				});
+				$("button").eq(2).click(function()
+				{
+					$(".one").animate({width:"+=100"},1000);
+				});
+				$("button").eq(3).click(function()
+				{
+					$(".one").animate({width:"hide"},1000);   //还有toggle
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<button>操作属性——变大小</button>
+		<button>操作属性——移动</button>
+		<button>累加属性</button>
+		<button>关键字</button>
+		<div class="one"></div>
+		<div class="two"></div>
+	</body>
+</html>

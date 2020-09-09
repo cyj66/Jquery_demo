@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="jquery-3.5.0.min.js"></script>
+		<style>
+			*{
+				margin:0;
+				padding:0;
+			}
+			.ad{          
+				position:fixed;
+				right:0;      /* 不设置position就对位置参数进行设置没用 */
+				bottom:0;
+				/* display:none; */
+			}
+			img{          /* 若是对div限制大小没用,图片太大会溢出 */
+				width:200px;
+				height:150px;
+			}
+			.ad>span{
+				display:inline-block;
+				width:20px;
+				height:20px;
+				position:absolute;
+				top:0;
+				right:0;
+				background-color: #00FFFF;
+			}
+		</style>
+		<script>
+			$(function()
+			{
+				$("span").click(function()
+				{
+					$(".ad").remove();
+				});
+				
+				/*$(".ad").slideDown(1000,function()
+				{
+					$(".ad").fadeOut(1000,function()
+					{
+						$(".ad").fadeIn(1000);
+					});
+				});*/
+				
+				//可用动画队列的链式编程
+				$(".ad").stop().slideDown(1000).fadeOut(1000).fadeIn(1000);
+			});
+		</script>
+	</head>
+	<body>
+		<div class="ad">
+			<img src="1.png">
+			<span></span>
+		</div>
+	</body>
+</html>

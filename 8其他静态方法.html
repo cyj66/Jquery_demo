@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>其他静态方法</title>
+		<script src="jquery-3.5.0.min.js"></script>
+		<script>
+			//1.trim()
+			var str="           trim去除字符串两端的空格      ";
+			var str2=$.trim(str);
+			console.log(str);
+			console.log(str2);
+			//2.isWindow():判断是否为window对象，true/false,同理isArray()判断是否为真数组、isFunction()判断是否为函数，而jQuery本质是个匿名函数因此为true
+			var w=window;
+			var res=$.isWindow(w);
+			console.log(res);
+			
+			/*function test()
+			{
+				;
+			}
+			test();
+			=
+			(function test(){;})();*/
+		</script>
+	</head>
+	
+	<body>
+		
+	</body>
+</html>

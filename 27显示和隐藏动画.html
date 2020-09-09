@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>显示和隐藏动画</title>
+		<script src="jquery-3.5.0.min.js"></script>
+		<style>
+			*{
+				margin:0;
+				padding:0
+			}
+			div{
+				width:200px;
+				height:200px;
+				background: mediumorchid;
+				display:none;
+			}
+		</style>
+		<script>
+			$(function()
+			{
+				$("button").eq(0).click(function()      //取标签元素要用到eq或get，eq是取jquery单元，get是取原来的东西
+				{
+					//$("div").css("display","block");
+					$("div").show(1000,function()         //整个动作执行1000毫秒，回调函数在动画执行完毕后使用
+					{
+						alert("显示动画执行完毕");
+					});
+				});
+				
+				$("button").eq(1).click(function()     
+				{
+					//$("div").css("display","none");
+					$("div").hide(1000,function()
+					{
+						alert("隐藏动画执行完毕");
+					});
+				});
+				
+				$("button").eq(2).click(function()      
+				{
+					$("div").toggle(1000,function()
+					{
+						alert("切换动画执行完毕");
+					})
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<button>显示</button>
+		<button>隐藏</button>
+		<button>切换</button>
+		<div></div>
+	</body>
+</html>

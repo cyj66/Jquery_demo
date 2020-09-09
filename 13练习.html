@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>练习</title>
+		<script src="jquery-3.5.0.min.js"></script>
+		<script>
+			$(function()
+			{
+				document.getElementById("btn").onclick=function()
+				{
+					var text=document.getElementById("inp").value;
+					$("img").attr("src",text);
+				}
+			})
+		</script>
+	</head>
+	
+	<body>
+		<input id="inp" type="text" placeholder="请输入新图片地址">
+		<button id="btn">切换图片</button>
+		<img src="1.png">
+	</body>
+</html>

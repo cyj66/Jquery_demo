@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>自定义事件</title> 
+		<script src="jquery-3.5.0.min.js"></script>
+		<style>
+			.mydefine{
+				width:100px;
+				height:100px;
+				background: olive;
+			}
+		</style>
+		<script>
+			$(function()
+			{
+				//自定义事件两个条件：1.必须通过on绑定。2.必须通过trigger触发。也是事件命名空间有效的条件。
+				$(".mydefine").on("myclick",function()
+				{
+					alert("自定义事件");
+				})
+				$(".mydefine").trigger("myclick");
+			});
+		</script>
+	</head>
+	
+	<body>
+		<div class="mydefine"></div>
+	</body>
+</html>

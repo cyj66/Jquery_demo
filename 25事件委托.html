@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>事件委托</title>       <!-- 请别人帮忙做事然后返回结果 -->
+		<script src="jquery-3.5.0.min.js"></script>
+		<script>
+			$(function()
+			{
+				$("button").click(function()
+				{
+					$("ul").append("<li>新增li</li>");
+				});
+				
+				/*$("ul>li").click(function()
+				{
+					console.log($(this).html());
+				});*/        //无法显示新增的，因为一开始ul>li并没有新增的li,只能通过事件委托到原本就有ul才能显示
+				
+				$("ul").delegate("li","click",function()
+				{
+					console.log($(this).html());     //点哪个显示哪个，原理事件冒泡冒到ul实现点击
+				})
+			});
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li>第一个li</li>
+			<li>第二个li</li>
+			<li>第三个li</li>
+		</ul>
+		<button>新增一个li</button>
+	</body>
+</html>
